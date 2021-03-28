@@ -6,13 +6,14 @@ from flask import Flask, request, jsonify, render_template
 import io
 import pickle
 import tensorflow as tf
+import keras
 
 app = Flask(__name__)
 model = None
 
 def load_model():
     global model
-    model = tf.keras.models.load_model('varroa_model.pb')
+    model = tf.keras.models.load_model('models')
 
 def prepare_image(image, target):
 	if image.mode != "RGB":
